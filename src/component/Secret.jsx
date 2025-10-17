@@ -21,7 +21,7 @@ function Secret() {
       return;
     }
 
-    axios.post(`https://encrypt-production-23b1.up.railway.app/addencrypt?msg=${msg}&password=${password}`)
+    axios.post(`http://localhost:8082/addencrypt?msg=${msg}&password=${password}`)
       .then((response) => {
         const secretmsg = response.data;
         setSecret(secretmsg);
@@ -40,7 +40,7 @@ function Secret() {
       return;
     }
 
-    axios.post(`https://encrypt-production-23b1.up.railway.app/decrypt?secret=${encodeURIComponent(encryptmsgs)}&password=${encodeURIComponent(epassword)}`)
+    axios.post(`http://localhost:8082/decrypt?secret=${encodeURIComponent(encryptmsgs)}&password=${encodeURIComponent(epassword)}`)
       .then((response) => {
         setDecryptmsg(response.data);
       });
